@@ -14,6 +14,8 @@ interface FindAllOptions {
   startDate?: Date;
   endDate?: Date;
   type?: string;
+  companyId?: string;
+  userId?: string;
 }
 
 interface ProcessingStats {
@@ -79,7 +81,15 @@ export class ProcessedEventsService {
   async findAll(
     options: FindAllOptions = {}
   ): Promise<{ data: ProcessedEventDocument[]; total: number }> {
-    const { page = 1, limit = 10, startDate, endDate, type } = options;
+    const {
+      page = 1,
+      limit = 10,
+      startDate,
+      endDate,
+      type,
+      companyId,
+      userId,
+    } = options;
     const skip = (page - 1) * limit;
 
     const query: Record<string, any> = {};
@@ -93,6 +103,24 @@ export class ProcessedEventsService {
     if (type) {
       query.type = type;
     }
+
+    if (companyId) {
+      query.companyId = companyId;
+    }
+
+    if (userId) {
+      query.userId = userId;
+    }
+
+    console.log("query", query);
+    console.log("companyId", companyId);
+    console.log("userId", userId);
+    console.log("startDate", startDate);
+    console.log("endDate", endDate);
+    console.log("type", type);
+    console.log("page", page);
+    console.log("limit", limit);
+    console.log("skip", skip);
 
     const [data, total] = await Promise.all([
       this.processedEventModel

@@ -6,6 +6,7 @@ import {
 } from "../schemas/processed-event.schema";
 import { ProcessedEventsService } from "./processed-events.service";
 import { Event, EventSchema } from "../schemas/event.schema";
+import { ProcessedEventsController } from "./processed-events.controller";
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { Event, EventSchema } from "../schemas/event.schema";
       { name: Event.name, schema: EventSchema },
     ]),
   ],
+  controllers: [ProcessedEventsController],
   providers: [ProcessedEventsService],
   exports: [ProcessedEventsService],
 })

@@ -1,16 +1,17 @@
-import { Module, Global } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { ConfigurationService } from './configuration.service';
+import { Module, Global } from "@nestjs/common";
+import { ConfigModule } from "@nestjs/config";
+import { ConfigurationService } from "./configuration.service";
+import { AppService } from "../app.service";
 
 @Global()
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env',
+      envFilePath: ".env",
     }),
   ],
-  providers: [ConfigurationService],
-  exports: [ConfigurationService],
+  providers: [ConfigurationService, AppService],
+  exports: [ConfigurationService, AppService],
 })
 export class ConfigurationModule {}

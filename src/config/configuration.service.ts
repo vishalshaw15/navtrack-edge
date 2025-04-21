@@ -15,10 +15,7 @@ export class ConfigurationService {
   }
 
   get mongodbUri(): string {
-    return this.configService.get<string>(
-      "MONGODB_URI",
-      "mongodb://localhost:27017/sellero"
-    );
+    return this.configService.get<string>("MONGODB_URI", "");
   }
 
   get jwt(): Configuration["jwt"] {
