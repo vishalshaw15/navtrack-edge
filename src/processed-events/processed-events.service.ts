@@ -111,17 +111,6 @@ export class ProcessedEventsService {
     if (userId) {
       query.userId = userId;
     }
-
-    console.log("query", query);
-    console.log("companyId", companyId);
-    console.log("userId", userId);
-    console.log("startDate", startDate);
-    console.log("endDate", endDate);
-    console.log("type", type);
-    console.log("page", page);
-    console.log("limit", limit);
-    console.log("skip", skip);
-
     const [data, total] = await Promise.all([
       this.processedEventModel
         .find(query)

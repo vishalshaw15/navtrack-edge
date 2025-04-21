@@ -51,8 +51,6 @@ export class ProcessedEventsController {
   ): Promise<ProcessedEventsResponse> {
     const decryptedToken = req.user;
 
-    console.log("decryptedToken", decryptedToken);
-
     // Convert string dates to Date objects
     const filterWithUserContext = {
       ...filterDto,
@@ -62,8 +60,6 @@ export class ProcessedEventsController {
         : undefined,
       endDate: filterDto.endDate ? new Date(filterDto.endDate) : undefined,
     };
-
-    console.log("filterWithUserContext", filterWithUserContext);
 
     // Only add userId filter for non-admin users
     if (decryptedToken.role !== "admin") {

@@ -22,7 +22,6 @@ export class EventsController {
   @Post()
   async create(@Body() createEventDto: CreateEventDto) {
     try {
-      console.log("Creating event", createEventDto);
       const event = await this.eventsService.create(createEventDto);
       if (!event) {
         throw new HttpException(
