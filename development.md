@@ -43,7 +43,7 @@
    - Processing locks timeout after 5 minutes
    - Failed events can be retried
 
-## Pain Points and Potential Improvements
+## Potential Improvements
 
 1. **Event Processing**
 
