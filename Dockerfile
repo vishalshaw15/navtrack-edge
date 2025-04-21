@@ -4,12 +4,15 @@ FROM node:20-alpine AS builder
 # Set working directory
 WORKDIR /app
 
+# Add necessary build tools
+RUN apk add --no-cache python3 make g++
+
 # Copy package files
 COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
 
 # Install dependencies
-RUN yarn install --frozen-lockfile
+RUN yarn install
 
 # Copy source code
 COPY . .
@@ -28,7 +31,7 @@ COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
 
 # Install production dependencies only
-RUN yarn install --production --frozen-lockfile
+RUN yarn install --production
 
 # Copy built application from builder stage
 COPY --from=builder /app/dist ./dist
