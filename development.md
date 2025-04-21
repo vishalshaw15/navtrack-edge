@@ -1,8 +1,8 @@
 # Development Documentation
 
-# Functionality Overview
+## Functionality Overview
 
-## User Roles and Access Control
+#### User Roles and Access Control
 
 1. **Agency User**
 
@@ -11,7 +11,7 @@
 2. **Location User**
    - Can only view their own activity data
 
-## Core Features
+#### Core Features
 
 1. **Event Tracking**
 
@@ -21,7 +21,7 @@
 2. **Filtering and Search**
    - Time-based filtering (daily, weekly, monthly)
 
-## Integration Features
+#### Integration Features
 
 1. **SSO Integration**
 
@@ -37,7 +37,7 @@
 
 ## Assumptions
 
-### Functionality
+#### Functionality
 
 1. Agency user would be able to see activity of each and every user, whereas location user could only be able to see their own activity.
 2.
@@ -52,7 +52,7 @@
    - Assumed that event data structure is stable and won't require frequent schema changes
    - Assumed that processed events need to be stored separately from raw events
 
-## High-Level Development Approach
+#### High-Level Development Approach
 
 1. **Architecture**
 
