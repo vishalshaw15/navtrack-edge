@@ -1,14 +1,54 @@
 # Development Documentation
 
+# Functionality Overview
+
+## User Roles and Access Control
+
+1. **Agency User**
+
+   - Can view activity data for all users across all locations
+
+2. **Location User**
+   - Can only view their own activity data
+
+## Core Features
+
+1. **Event Tracking**
+
+   - Page view tracking
+   - Time spent on pages
+
+2. **Filtering and Search**
+   - Time-based filtering (daily, weekly, monthly)
+
+## Integration Features
+
+1. **SSO Integration**
+
+   - Secure token-based authentication
+   - Role-based access control
+
+2. **Custom Page Integration**
+
+   - Custom Page to show the details of the tracked events
+
+3. **Custom JS Integration**
+   - Custom JS to send the events on-to the backend.
+
 ## Assumptions
 
-1. **Scalability**
+### Functionality
+
+1. Agency user would be able to see activity of each and every user, whereas location user could only be able to see their own activity.
+2.
+
+3. **Scalability**
 
    - Assumed that polling-based event processing is sufficient for the expected load
    - Assumed that MongoDB can handle the expected write/read patterns
    - Assumed that multiple server instances can safely process events concurrently
 
-2. **Data Model**
+4. **Data Model**
    - Assumed that event data structure is stable and won't require frequent schema changes
    - Assumed that processed events need to be stored separately from raw events
 
